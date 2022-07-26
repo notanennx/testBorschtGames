@@ -7,22 +7,26 @@ using NaughtyAttributes;
 public class EnemySystem : MonoBehaviour
 {
     // Hidden
-    private float nextReset;
+    //private float nextReset;
 
     // Update
     private void Update()
     {
-        // Exit
-        if (nextReset >= Time.time) return;
-
         // Command
         foreach (EnemyComponent enemy in EnemyComponent.Hashset)
         {
-            if (enemy.GetTarget())
-                enemy.GetNavMeshAgent().SetDestination(enemy.GetTarget().position);
-        }       
+            // Attack
+            if (enemy.GetMelee().GetTarget())
+                enemy.Attack();
 
-        // Cooldown
-        nextReset = (Time.time + 0.1f);
+            // Destination reset
+            if (enemy.GetTarget())
+            {
+                Vector3 direction = (enemy.GetTarget().position - enemy.transform.position).normalized;
+                Vector3 targetPosition = (enemy.GetTarget().position + (direction * -0.75f));
+
+                enemy.GetNavMeshAgent().SetDestination(targetPosition);
+            }
+        }       
     }
 }

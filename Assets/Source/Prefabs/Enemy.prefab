@@ -62,6 +62,68 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!1 &4112101046316228171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7549231434738735107}
+  - component: {fileID: 4251554947136933151}
+  - component: {fileID: 7247318602270962355}
+  m_Layer: 7
+  m_Name: Melee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7549231434738735107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112101046316228171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8584679366000998933}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4251554947136933151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112101046316228171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0.5}
+--- !u!114 &7247318602270962355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112101046316228171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0903efcd2f3fedf468b55583feb07bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  currentTarget: {fileID: 0}
 --- !u!1001 &8988803128177419352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,6 +237,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
+--- !u!114 &2350635726026896140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964758976775135407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30bb402dc6d6b2469df51597baf20b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0
+  maxAmount: 5
+  healthbar: {fileID: 0}
 --- !u!114 &2726052628487585586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +265,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPatrolling: 1
+--- !u!114 &4756908924696374346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964758976775135407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b124a9738370c449abbddbde22788d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melee: {fileID: 7247318602270962355}
+  vision: {fileID: 9079090246965319362}
+  currentTarget: {fileID: 0}
+  minDamage: 5
+  maxDamage: 10
 --- !u!114 &5153127189269699362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,16 +296,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.4
   rotateSpeed: 6.4
---- !u!114 &4756908924696374346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8964758976775135407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b124a9738370c449abbddbde22788d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vision: {fileID: 9079090246965319362}
