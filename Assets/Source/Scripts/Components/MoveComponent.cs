@@ -28,7 +28,7 @@ public class MoveComponent : MonoBehaviour
 
     // Getters
     public bool IsNpc() => isNpc;
-    public bool IsMoving() => ((currentMovement.x != 0) || (currentMovement.y != 0));// || ((isNpc) && (navComponent.hasPath));
+    public bool IsMoving() => ((currentMovement.x != 0) || (currentMovement.y != 0)) || ((isNpc) && (navMeshAgent.hasPath));
     public float GetMoveSpeed() => moveSpeed;
     public float GetRotationSpeed() => rotateSpeed;
 
