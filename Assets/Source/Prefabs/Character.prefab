@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836627968304488013}
   - component: {fileID: 871153822205966752}
+  - component: {fileID: 577225958947886920}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5173543576448827097}
   - {fileID: 3306158341306628564}
+  - {fileID: 5173543576448827097}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,6 +55,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!143 &577225958947886920
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60688750128284919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.35
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &221790554728671148
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +105,7 @@ Transform:
   - {fileID: 9027904874194389478}
   - {fileID: 4874275439716470090}
   m_Father: {fileID: 836627968304488013}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -37.428078, y: 50.52276, z: -74.26551}
 --- !u!1 &879997258489575263
 GameObject:
@@ -560,12 +579,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5749153965545171090}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.8305261, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8305261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 836627968304488013}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &42784303763141254
 SkinnedMeshRenderer:

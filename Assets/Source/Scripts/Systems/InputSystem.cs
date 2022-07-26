@@ -10,7 +10,7 @@ public class InputSystem : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private FloatingJoystick mainJoystick;
 
     // Actions
-    public static Action<Vector2> OnInputRecieved;
+    public static Action<Vector2> OnInputReceived;
 
     // Update
     private void Update()
@@ -23,7 +23,7 @@ public class InputSystem : MonoBehaviour
     {
         float vInput = mainJoystick.Vertical;
         float hInput = mainJoystick.Horizontal;
-        if ((vInput != 0) || (hInput != 0))
-            OnInputRecieved?.Invoke(new Vector2(hInput, vInput));
+        //if ((vInput != 0) || (hInput != 0))
+            OnInputReceived?.Invoke(new Vector2(hInput, vInput));
     }
 }
