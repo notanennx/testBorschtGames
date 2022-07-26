@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fence Material
+  m_Name: Wall Material
   m_Shader: {fileID: 4800000, guid: 4609c28b77ae6c04689a8ba2b2fccba7, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -79,8 +79,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    - _Color: {r: 0.5270254, g: 0.3128467, b: 0.6698113, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
-    - _SColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    - _HColor: {r: 0.86662376, g: 0.7243195, b: 0.990566, a: 1}
+    - _SColor: {r: 0.5421379, g: 0.33647692, b: 0.6792453, a: 1}
   m_BuildTextureStacks: []
