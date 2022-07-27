@@ -20,7 +20,7 @@ public class HealthComponent : MonoBehaviour
         // Hide it
         if (healthbar)
         {
-            //healthbar.transform.localScale = Vector3.zero;
+            healthbar.transform.localScale = Vector3.zero;
             UpdateHealthbar();
         }
     }

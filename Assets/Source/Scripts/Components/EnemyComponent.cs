@@ -81,4 +81,16 @@ public class EnemyComponent : MonoBehaviour
         // Cooldown
         nextAttack = (Time.time + 2f);
     }
+
+    // Makes enemy lose interest
+    public void LoseInterest(Transform inputTarget)
+    {
+        // Exit
+        if (currentTarget != inputTarget) return;
+
+        // Setup
+        patrol.SetPatrolling(true);
+        navMeshAgent.ResetPath();
+        currentTarget = null;
+    }
 }
