@@ -318,6 +318,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 836627968304488013, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
   m_PrefabInstance: {fileID: 8988803128177419352}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &8946018901488883422 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 42784303763141254, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
+  m_PrefabInstance: {fileID: 8988803128177419352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8964758976775135407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 60688750128284919, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
@@ -402,5 +407,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1313f4df7dddf094fb657b7f32e10cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.4
+  moveSpeed: 1.6
   rotateSpeed: 6.4
+--- !u!114 &8110647265435466837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964758976775135407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13677b54a46597e4d818538aaff2e097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyingOnDeath: 1
+  deathMaterial: {fileID: 2100000, guid: aa2d44cb621d9a447a826fcf3f09e936, type: 2}
+  meshRenderer: {fileID: 8946018901488883422}

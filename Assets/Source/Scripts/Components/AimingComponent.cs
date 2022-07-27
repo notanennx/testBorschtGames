@@ -20,10 +20,12 @@ public class AimingComponent : MonoBehaviour
     private float nextTargetSearch;
     private Animator animator;
     private Transform currentTarget;
+    private DeathComponent death;
 
     // Awaking
     private void Awake()
     {
+        death = GetComponent<DeathComponent>();
         animator = GetComponent<Animator>();
     }
 
@@ -55,6 +57,7 @@ public class AimingComponent : MonoBehaviour
     {
         // Exit
         if (!isAiming) return;
+        if (death.IsDead()) return;
 
         // Moving break
         if ((animator.GetBool("IsMoving")) || (!currentTarget))

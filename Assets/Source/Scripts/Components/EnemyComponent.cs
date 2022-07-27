@@ -19,6 +19,7 @@ public class EnemyComponent : MonoBehaviour
     private float nextAttack;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private DeathComponent death;
     private PatrolComponent patrol;
 
     // Hashset
@@ -38,6 +39,7 @@ public class EnemyComponent : MonoBehaviour
     private void Awake()
     {
         // Get
+        death = GetComponent<DeathComponent>();
         patrol = GetComponent<PatrolComponent>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -50,6 +52,7 @@ public class EnemyComponent : MonoBehaviour
     private void OnTargetFound(Transform inputTarget)
     {
         // Exit
+        if (death.IsDead()) return;
         if (currentTarget) return;
 
         // Setup
@@ -62,6 +65,7 @@ public class EnemyComponent : MonoBehaviour
     private void AttackHit()
     {
         // Exit
+        if (death.IsDead()) return;
         if (!melee.GetTarget()) return;
 
         // Damage
@@ -73,6 +77,7 @@ public class EnemyComponent : MonoBehaviour
     public void Attack()
     {
         // Exit
+        if (death.IsDead()) return;
         if (nextAttack > Time.time) return;
 
         // Attack

@@ -16,7 +16,6 @@ public class WeaponComponent : MonoBehaviour
     [SerializeField, BoxGroup("Settings")] private float cooldown;
 
     // Hidden
-    private bool canShoot;
     private float nextShoot;
 
     // Awaking
@@ -44,10 +43,6 @@ public class WeaponComponent : MonoBehaviour
     // Shows a gun
     public void Show()
     {
-        // Set
-        canShoot = true;
-
-        // Tween
         modelTransform.DOKill();
         modelTransform.DOScale(Vector3.one, 0.3f);
     }
@@ -55,10 +50,6 @@ public class WeaponComponent : MonoBehaviour
     // Hides a gun
     public void Hide()
     {
-        // Set
-        canShoot = false;
-
-        // Tween
         modelTransform.DOKill();
         modelTransform.DOScale(Vector3.zero, 0.3f);
     }

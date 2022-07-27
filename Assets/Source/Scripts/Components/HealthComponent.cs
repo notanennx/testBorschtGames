@@ -11,10 +11,14 @@ public class HealthComponent : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private int maxAmount;
     [SerializeField, BoxGroup("Main")] private HealthbarComponent healthbar;
 
+    // Hidden
+    private DeathComponent death;
+
     // Awaking
     private void Awake()
     {
         // Setup
+        death = GetComponent<DeathComponent>();
         amount = maxAmount;
 
         // Hide it
@@ -44,10 +48,21 @@ public class HealthComponent : MonoBehaviour
         // Death
         if (amount <= 0)
         {
-            Destroy(gameObject);
+            if (death)
+                death.Die();
+            else
+                Destroy(gameObject);
         }
 
         // Update
+        UpdateHealthbar();
+    }
+
+    // Resets our health
+    public void ResetHealth()
+    {
+        // Set
+        amount = maxAmount;
         UpdateHealthbar();
     }
 }

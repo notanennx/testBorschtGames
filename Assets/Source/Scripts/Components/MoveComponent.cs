@@ -17,6 +17,7 @@ public class MoveComponent : MonoBehaviour
 
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private DeathComponent death;
     private CharacterController charController;
 
     // Hashset
@@ -38,6 +39,7 @@ public class MoveComponent : MonoBehaviour
     // Awaking
     private void Awake()
     {
+        death = GetComponent<DeathComponent>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent)
@@ -50,7 +52,14 @@ public class MoveComponent : MonoBehaviour
     }
 
     // Moves us somewhere
-    public void Move(Vector3 newPosition) => charController.Move(newPosition * (moveSpeed * Time.deltaTime));
+    public void Move(Vector3 newPosition)
+    {
+        // Exit
+        if (death.IsDead()) return;
+
+        // Move
+        charController.Move(newPosition * (moveSpeed * Time.deltaTime));
+    }
 
     // Sets a move speed
     public void SetSpeed(float inputSpeed)
@@ -62,5 +71,12 @@ public class MoveComponent : MonoBehaviour
     }
 
     // Sets a movement vector
-    public void SetMovement(Vector2 inputMovement) => currentMovement = inputMovement;
+    public void SetMovement(Vector2 inputMovement)
+    {
+        // Exit
+        if (death.IsDead()) return;
+
+        // Setup
+        currentMovement = inputMovement;
+    }
 }

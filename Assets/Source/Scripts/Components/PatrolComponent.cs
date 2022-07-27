@@ -41,7 +41,8 @@ public class PatrolComponent : MonoBehaviour
         if ((nextPatrol >= Time.time) || (!isPatrolling)) return;
 
         // Moving
-        navMeshAgent.SetDestination(inputPosition);
+        if (navMeshAgent.enabled)
+            navMeshAgent.SetDestination(inputPosition);
 
         // Cooldown
         nextPatrol = (Time.time + UnityEngine.Random.Range(2f, 4f));
