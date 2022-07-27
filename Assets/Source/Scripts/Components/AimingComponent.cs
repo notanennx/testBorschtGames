@@ -8,7 +8,7 @@ public class AimingComponent : MonoBehaviour
 {
     // Vars
     [SerializeField, BoxGroup("Main")] private bool isAiming;
-    [SerializeField, BoxGroup("Main")] private Animator animator;
+    [SerializeField, BoxGroup("Main")] private float aimingRange;
     [SerializeField, BoxGroup("Main")] private LayerMask targetLayer;
 
     [SerializeField, BoxGroup("Extra")] private WeaponComponent weapon;
@@ -18,16 +18,18 @@ public class AimingComponent : MonoBehaviour
 
     // Hidden
     private float nextTargetSearch;
+    private Animator animator;
     private Transform currentTarget;
-    private HashSet<Transform> targetsHashset = new HashSet<Transform>();
+
+    // Awaking
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Filling
     private void OnEnable() => Hashset.Add(this);
     private void OnDisable() => Hashset.Remove(this);
-
-    // Target entered/left zone
-    private void OnTriggerExit(Collider other) => targetsHashset.Remove(other.transform);
-    private void OnTriggerEnter(Collider other) => targetsHashset.Add(other.transform);
 
     // Enables/disables aiming
     public void SetAiming(bool inputAiming)
@@ -68,7 +70,7 @@ public class AimingComponent : MonoBehaviour
             weapon.Shoot();
 
         // Direction
-        Vector3 newDirection = (currentTarget.position - transform.parent.position);
+        Vector3 newDirection = (currentTarget.position - transform.position);
         Vector3 smoothDirection = Vector3.RotateTowards(transform.forward, newDirection, (8f * Time.deltaTime), 0f);
 
         // Rotation
@@ -77,7 +79,7 @@ public class AimingComponent : MonoBehaviour
             targetRotation.z = 0;
 
         // Rotating it
-        transform.parent.rotation = targetRotation;
+        transform.rotation = targetRotation;
     }
 
     // Gets a closest target
@@ -87,13 +89,13 @@ public class AimingComponent : MonoBehaviour
 
         Vector3 currentPos = transform.position;
         Transform targetClose = null;
-        foreach (Transform target in targetsHashset)
+        foreach (EnemyComponent target in EnemyComponent.Hashset)
         {
-            float dist = Vector3.Distance(target.position, currentPos);
-            if (dist < minDist)
+            float dist = Vector3.Distance(target.transform.position, currentPos);
+            if ((dist < minDist) && (dist < aimingRange))
             {
                 minDist = dist;
-                targetClose = target;
+                targetClose = target.transform;
             }
         }
         return targetClose;

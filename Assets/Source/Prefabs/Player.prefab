@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5046326171589020633}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2983959822080748592
 GameObject:
@@ -612,71 +612,6 @@ Transform:
   m_Father: {fileID: 2983959822081110032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &7650112328246901890
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 176480206163313552}
-  - component: {fileID: 2153761756855634477}
-  - component: {fileID: 5209096683225368707}
-  m_Layer: 7
-  m_Name: Aiming
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &176480206163313552
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650112328246901890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5046326171589020633}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2153761756855634477
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650112328246901890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 8
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &5209096683225368707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650112328246901890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e1d0877afb61e45afc336de934a816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAiming: 0
-  animator: {fileID: 4720510834100366388}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  weapon: {fileID: 137688468553837024}
 --- !u!1001 &368697825614475349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1182,11 +1117,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
---- !u!95 &4720510834100366388 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 871153822205966752, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
-  m_PrefabInstance: {fileID: 5590209992748701076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5046326171589020633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 836627968304488013, guid: e394ebb7084b71e44a3837d69117d76e, type: 3}
@@ -1213,7 +1143,7 @@ MonoBehaviour:
   shootPosTransform: {fileID: 4753893430232767474}
   bulletTemplate: {fileID: 4786370612514228106, guid: 751708fed23a6964b9aee8d972b30df7, type: 3}
   damage: 1
-  cooldown: 0.15
+  cooldown: 0.3
 --- !u!114 &2391489634389388375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1172,24 @@ MonoBehaviour:
   amount: 0
   maxAmount: 100
   healthbar: {fileID: 220841574135197371}
+--- !u!114 &4397271897089148556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567564344950149475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e1d0877afb61e45afc336de934a816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAiming: 0
+  aimingRange: 8
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  weapon: {fileID: 137688468553837024}
 --- !u!114 &7668808490437375076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73c7dbfebde33640af85ef839c2bd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiming: {fileID: 5209096683225368707}
+  aiming: {fileID: 4397271897089148556}
   weapon: {fileID: 137688468553837024}
   healthbar: {fileID: 220841574135197371}
 --- !u!114 &8085776928248896815
