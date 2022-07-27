@@ -94,8 +94,12 @@ public class EnemyComponent : MonoBehaviour
         if (currentTarget != inputTarget) return;
 
         // Setup
+        melee.ResetTarget();
         patrol.SetPatrolling(true);
-        navMeshAgent.ResetPath();
         currentTarget = null;
+
+        // Repath
+        if (navMeshAgent.enabled)
+            navMeshAgent.ResetPath();
     }
 }

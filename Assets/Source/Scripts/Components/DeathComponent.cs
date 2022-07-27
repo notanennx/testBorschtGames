@@ -12,6 +12,9 @@ public class DeathComponent : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private Material deathMaterial;
     [SerializeField, BoxGroup("Main")] private SkinnedMeshRenderer meshRenderer;
 
+    [SerializeField, BoxGroup("Main")] private bool canRespawn;
+    [SerializeField, BoxGroup("Main"), ShowIf("canRespawn")] private Transform respawnPoint;
+
     // Hidden
     private bool isDead;
     private Animator animator;
@@ -68,10 +71,20 @@ public class DeathComponent : MonoBehaviour
     }
 
     // Revives us
-    [Button("Debug Revive")]
-    public void Revive()
+    [Button("Debug Respawn")]
+    public void Respawn()
     {
+        // Exit
+        if (!canRespawn) return;
+
+        // Respawn
+        isDead = false;
+        animator.Rebind();
         healthComponent.ResetHealth();
         characterController.enabled = true;
+
+        // Change position
+        if (respawnPoint)
+            transform.position = respawnPoint.position;
     }
 }

@@ -25,8 +25,12 @@ public class AimingComponent : MonoBehaviour
     // Awaking
     private void Awake()
     {
+        // Set
         death = GetComponent<DeathComponent>();
         animator = GetComponent<Animator>();
+
+        // Subscribe
+        //death.
     }
 
     // Filling

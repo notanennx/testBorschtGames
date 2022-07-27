@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 0
-  maxAmount: 5
+  maxAmount: 3
   healthbar: {fileID: 0}
 --- !u!114 &2726052628487585586
 MonoBehaviour:
@@ -393,8 +393,8 @@ MonoBehaviour:
   melee: {fileID: 7247318602270962355}
   vision: {fileID: 9079090246965319362}
   currentTarget: {fileID: 0}
-  minDamage: 5
-  maxDamage: 10
+  minDamage: 8
+  maxDamage: 16
 --- !u!114 &5153127189269699362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,3 +424,5 @@ MonoBehaviour:
   isDestroyingOnDeath: 1
   deathMaterial: {fileID: 2100000, guid: aa2d44cb621d9a447a826fcf3f09e936, type: 2}
   meshRenderer: {fileID: 8946018901488883422}
+  canRespawn: 0
+  respawnPoint: {fileID: 0}

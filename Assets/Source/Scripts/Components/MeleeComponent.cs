@@ -11,6 +11,7 @@ public class MeleeComponent : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private Transform currentTarget;
 
     // Getters
+    public void ResetTarget() => currentTarget = null;
     public Transform GetTarget() => currentTarget;
 
     // Entered zone
