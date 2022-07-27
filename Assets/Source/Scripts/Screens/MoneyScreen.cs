@@ -18,7 +18,7 @@ public class MoneyScreen : MonoBehaviour
     private int amount;
 
     // Sets amount
-    private void SetAmount(int inputAmount)
+    public void SetAmount(int inputAmount)
     {
         // Tick
         DOTween.To(() => amount, x => amount = x, inputAmount, 0.4f).OnUpdate(() => {

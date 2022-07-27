@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using NaughtyAttributes;
+using DG.Tweening;
 
 public class GrabComponent : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GrabComponent : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private Transform stackPoint;
 
     // Hidden
-    //private float itemHeight;
+    private float itemHeight = 0.275f;
 
     // Collections
     private Stack<Transform> itemsStack = new Stack<Transform>();
@@ -25,22 +26,28 @@ public class GrabComponent : MonoBehaviour
     }
 
     // Attempts to grab item
-    private void AddItem(Transform inputTransform)
+    public void AddItem(Transform inputTransform)
     {
         // Exit
         if (itemsHashset.Count >= capacity) return;
         if (itemsHashset.Contains(inputTransform)) return;
 
-        // Adding
+        // Tweening
+        inputTransform.parent = stackPoint;
+        inputTransform.DOKill();
+        inputTransform.DOLocalMove(new Vector3(0, (itemHeight * itemsHashset.Count), 0), 0.3f);
+        inputTransform.DOLocalRotate(Vector3.zero, 0.3f);
+
+        // Adding it
         itemsStack.Push(inputTransform);
         itemsHashset.Add(inputTransform);
 
-        // Parent
-        inputTransform.parent = stackPoint;
+        // No physics
+        inputTransform.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     // Grabs an item from stack
-    private Transform GetItem()
+    public Transform GetItem()
     {
         // Exit
         if (itemsHashset.Count <= 0) return null;
@@ -48,6 +55,9 @@ public class GrabComponent : MonoBehaviour
         // Find
         Transform targetItem = itemsStack.Pop();
             targetItem.parent = null;
+
+        // Remove
+        itemsHashset.Remove(targetItem);
 
         // Return
         return targetItem;
