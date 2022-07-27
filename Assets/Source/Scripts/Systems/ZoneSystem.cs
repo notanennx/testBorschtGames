@@ -6,6 +6,10 @@ using NaughtyAttributes;
 
 public class ZoneSystem : MonoBehaviour
 {
+    // Vars
+    [SerializeField, BoxGroup("Main")] private int safeLayer;
+    [SerializeField, BoxGroup("Main")] private int vulnerableLayer;
+
     // Actions
     public static Action OnSellzoneExit;
     public static Action OnSellzoneEnter;
@@ -33,6 +37,7 @@ public class ZoneSystem : MonoBehaviour
             // Reset aiming
             playerComponent.GetWeapon().Show();
             playerComponent.GetAiming().SetAiming(true);
+            playerComponent.gameObject.layer = vulnerableLayer;
         }
     }
 
@@ -51,6 +56,7 @@ public class ZoneSystem : MonoBehaviour
             // Reset aiming
             playerComponent.GetWeapon().Hide();
             playerComponent.GetAiming().SetAiming(false);
+            playerComponent.gameObject.layer = safeLayer;
 
             // Fuck off zombies
             foreach (EnemyComponent enemy in EnemyComponent.Hashset)

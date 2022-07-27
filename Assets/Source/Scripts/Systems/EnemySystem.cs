@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using NaughtyAttributes;
 
 public class EnemySystem : MonoBehaviour
 {
     // Hidden
     //private float nextReset;
+
+    // Awake
 
     // Update
     private void Update()
@@ -26,7 +29,13 @@ public class EnemySystem : MonoBehaviour
                 Vector3 targetPosition = (enemy.GetTarget().position + (direction * -0.75f));
 
                 if (enemy.GetNavMeshAgent().enabled)
-                    enemy.GetNavMeshAgent().SetDestination(targetPosition);
+                {
+                    Debug.Log(enemy.GetNavMeshAgent().pathStatus);
+                    if (enemy.GetNavMeshAgent().pathStatus == NavMeshPathStatus.PathPartial)
+                        enemy.LoseInterest(enemy.GetTarget());
+                    else
+                        enemy.GetNavMeshAgent().SetDestination(targetPosition);
+                }
             }
         }       
     }

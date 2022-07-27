@@ -19,6 +19,7 @@ public class DeathComponent : MonoBehaviour
     private bool isDead;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private LootComponent lootComponent;
     private HealthComponent healthComponent;
     private CharacterController characterController;
 
@@ -34,6 +35,7 @@ public class DeathComponent : MonoBehaviour
         // Get
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        lootComponent = GetComponent<LootComponent>();
         healthComponent = GetComponent<HealthComponent>();
         characterController = GetComponent<CharacterController>();
     }
@@ -57,6 +59,10 @@ public class DeathComponent : MonoBehaviour
         animator.SetTrigger("Death");
         if (deathMaterial)
             meshRenderer.material = deathMaterial;
+
+        // Loot
+        if (lootComponent)
+            lootComponent.CreateLoot();
 
         // Event
         OnDeath?.Invoke(this);
