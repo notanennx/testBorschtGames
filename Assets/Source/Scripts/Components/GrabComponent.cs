@@ -35,6 +35,7 @@ public class GrabComponent : MonoBehaviour
         // Tweening
         inputTransform.parent = stackPoint;
         inputTransform.DOKill();
+        inputTransform.DOScale(Vector3.one, 0.3f);
         inputTransform.DOLocalMove(new Vector3(0, (itemHeight * itemsHashset.Count), 0), 0.3f);
         inputTransform.DOLocalRotate(Vector3.zero, 0.3f);
 

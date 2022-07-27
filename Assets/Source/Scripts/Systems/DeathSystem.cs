@@ -16,7 +16,7 @@ public class DeathSystem : MonoBehaviour
     private void Awake()
     {
         // Subscribe
-        DeathComponent.OnDeath += OnDeath;
+        DeathComponent.OnDeathGlobal += OnDeath;
         deathScreen.OnRestartClicked += RevivePlayer;
     }
 

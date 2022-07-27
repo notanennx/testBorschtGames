@@ -45,7 +45,14 @@ public class EnemyComponent : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         // Subscribe
+        death.OnDeath += OnDeath;
         vision.OnTargetFound += OnTargetFound;
+    }
+
+    // Cleanup
+    private void OnDeath(DeathComponent inputDeath)
+    {
+        Hashset.Remove(this);
     }
 
     // Target was found by vision

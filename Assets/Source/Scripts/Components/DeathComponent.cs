@@ -24,7 +24,8 @@ public class DeathComponent : MonoBehaviour
     private CharacterController characterController;
 
     // Actions
-    public static Action<DeathComponent> OnDeath;
+    public Action<DeathComponent> OnDeath;
+    public static Action<DeathComponent> OnDeathGlobal;
 
     // Gettes
     public bool IsDead() => isDead;
@@ -66,6 +67,7 @@ public class DeathComponent : MonoBehaviour
 
         // Event
         OnDeath?.Invoke(this);
+        OnDeathGlobal?.Invoke(this);
 
         // Disable
         characterController.enabled = false;
