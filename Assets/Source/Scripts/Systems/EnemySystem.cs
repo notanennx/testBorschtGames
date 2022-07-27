@@ -27,15 +27,8 @@ public class EnemySystem : MonoBehaviour
             {
                 Vector3 direction = (enemy.GetTarget().position - enemy.transform.position).normalized;
                 Vector3 targetPosition = (enemy.GetTarget().position + (direction * -0.75f));
-
                 if (enemy.GetNavMeshAgent().enabled)
-                {
-                    Debug.Log(enemy.GetNavMeshAgent().pathStatus);
-                    if (enemy.GetNavMeshAgent().pathStatus == NavMeshPathStatus.PathPartial)
-                        enemy.LoseInterest(enemy.GetTarget());
-                    else
-                        enemy.GetNavMeshAgent().SetDestination(targetPosition);
-                }
+                    enemy.GetNavMeshAgent().SetDestination(targetPosition);
             }
         }       
     }

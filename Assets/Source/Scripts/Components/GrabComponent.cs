@@ -25,6 +25,22 @@ public class GrabComponent : MonoBehaviour
         AddItem(other.transform);
     }
 
+    // Cleans stack
+    public void Cleanup()
+    {
+        // Remove
+        while (itemsStack.Count > 0)
+        {
+            Transform item = itemsStack.Pop();
+            if (item)
+                Destroy(item.gameObject);
+        }
+
+        // Cleanup
+        itemsStack.Clear();
+        itemsHashset.Clear();
+    }
+
     // Attempts to grab item
     public void AddItem(Transform inputTransform)
     {

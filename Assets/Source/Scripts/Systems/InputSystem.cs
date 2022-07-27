@@ -12,7 +12,14 @@ public class InputSystem : MonoBehaviour
     // Actions
     public static Action<Vector2> OnInputReceived;
 
-    // Update
+    // Awaking
+    private void Awake()
+    {
+        // Fix
+        Application.targetFrameRate = 60;
+    }
+
+    // Updating
     private void Update()
     {
         BroadcastInput();

@@ -31,6 +31,7 @@ public class DeathSystem : MonoBehaviour
             // Hide
             victimPlayer.GetAiming().SetAiming(false);
             victimPlayer.GetHealthbar().Hide();
+            victimPlayer.GetComponentInChildren<GrabComponent>().Cleanup();
             deathScreen.ShowMenu();
 
             // Fuck off
