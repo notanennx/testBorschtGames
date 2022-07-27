@@ -11,6 +11,8 @@ public class AimingComponent : MonoBehaviour
     [SerializeField, BoxGroup("Main")] private Animator animator;
     [SerializeField, BoxGroup("Main")] private LayerMask targetLayer;
 
+    [SerializeField, BoxGroup("Extra")] private WeaponComponent weapon;
+
     // Hashset
     public static HashSet<AimingComponent> Hashset = new HashSet<AimingComponent>();
 
@@ -55,12 +57,15 @@ public class AimingComponent : MonoBehaviour
         // Moving break
         if ((animator.GetBool("IsMoving")) || (!currentTarget))
         {
+            weapon.Cooldown(0.4f);
             animator.SetBool("IsAiming", false);
             return;
         }
 
         // Aiming
         animator.SetBool("IsAiming", isAiming);
+        if (weapon)
+            weapon.Shoot();
 
         // Direction
         Vector3 newDirection = (currentTarget.position - transform.parent.position);

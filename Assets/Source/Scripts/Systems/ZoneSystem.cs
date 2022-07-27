@@ -24,6 +24,7 @@ public class ZoneSystem : MonoBehaviour
             playerComponent.GetHealthbar().Show();
 
             // Reset aiming
+            playerComponent.GetWeapon().Show();
             playerComponent.GetAiming().SetAiming(true);
         }
     }
@@ -38,6 +39,7 @@ public class ZoneSystem : MonoBehaviour
             playerComponent.GetHealthbar().Hide();
 
             // Reset aiming
+            playerComponent.GetWeapon().Hide();
             playerComponent.GetAiming().SetAiming(false);
 
             // Fuck off zombies

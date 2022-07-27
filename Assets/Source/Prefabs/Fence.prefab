@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2714520064591266036}
   - component: {fileID: 7832664546327502974}
   - component: {fileID: 3951927431660462702}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6695590294819543803}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}

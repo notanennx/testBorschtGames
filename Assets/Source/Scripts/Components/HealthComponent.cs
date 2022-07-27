@@ -26,13 +26,26 @@ public class HealthComponent : MonoBehaviour
     }
 
     // Updates our healthbars
-    private void UpdateHealthbar() => healthbar.UpdateInfo(amount.ToString(), (float)amount/maxAmount);
+    private void UpdateHealthbar()
+    {
+        // Exit
+        if (!healthbar) return;
+
+        // Update
+        healthbar.UpdateInfo(amount.ToString(), (float)amount/maxAmount);
+    }
 
     // Takes damages
     public void TakeDamage(int inputDamage)
     {
         // Set
         amount = Mathf.Max(0, amount - inputDamage);
+
+        // Death
+        if (amount <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         // Update
         UpdateHealthbar();

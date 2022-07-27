@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - EnemyVision
   - Zone
-  - 
-  - 
+  - Bullet
+  - World
   - 
   - 
   - 
